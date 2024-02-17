@@ -19,8 +19,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" href="/addcustomer">Add Customer</a>
                     <a class="nav-link" href="#">Pricing</a>
                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </div>
@@ -29,12 +29,20 @@
     </nav>
 
     <div class="container mt-3">
-        <h2>List Categories</h2>
-        <hr />
+        <div class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <h2 >List Customer</h2>
+              <div class="d-grid gap-2 d-md-block">
+                <a class="btn btn-primary" href="/addcustomer" role="button">Add Customer</a>
+              </div>
+            </div>
+        </div>
+
+        <hr/>
         <table class="table table-bordered mt-2 text-center">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">ID Pesanan</th>
                     <th scope="col">Tanggal Pesanan</th>
                     <th scope="col">Nomor Polisi</th>
                     <th scope="col">Nama Motor</th>

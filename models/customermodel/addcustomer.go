@@ -28,8 +28,9 @@ func AddHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	Name := r.Form.Get("Name")
-	Age := r.Form.Get("Age")
+	Nomor_polisi := r.Form.Get("Nomor_polisi")
+	Nama_motor := r.Form.Get("Nama_motor")
+	Jenis_pesanan := r.Form.Get("Jenis_pesanan")
 
 	// Masukkan data ke dalam database
 	db, err := sql.Open("mysql", "admin:admin@tcp(localhost:3306)/bengkel")
@@ -39,7 +40,7 @@ func AddHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 
-	_, err = db.Exec("INSERT INTO people (Name, Age) VALUES (?, ?)", Name, Age)
+	_, err = db.Exec("INSERT INTO customer (nomor_polisi, nama_motor, jenis_pesanan) VALUES (?, ?, ?)", Nomor_polisi, Nama_motor, Jenis_pesanan)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
