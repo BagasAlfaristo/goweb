@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" href="/addcustomer">Add Customer</a>
+                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+      <!-- <form class="row g-3" method="post" action="/add"> -->
+
+        <div class="col-md-6">
+          <label for="Nomor_polisi" class="form-label">Nomor Polisi</label>
+          <input type="text" class="form-control" id="Nomor_polisi" name="Nomor_polisi" />
+
+          <label for="Nama_motor" class="form-label">Nama Motor</label>
+            <input type="text" class="form-control" id="Nama_motor" name="Nama_motor" />
+
+            <div class="col-md-5">
+                <label for="Jenis_pesanan" class="form-label">Jenis Pesanan</label>
+
+                <select id="formTypeSelect" onchange="toggleForm()">
+                  <option value="basic">Belanja</option>
+                  <option value="advanced">Service</option>
+                </select>
+
+            </div>
+
+            <form id="basicForm" class="hidden">
+                <label for="basicInput">Belanja Input:</label>
+                <input type="text" id="basicInput" name="basicInput">
+                <div class="col-12">
+                    <button type="submit" value="Submit" class="btn btn-primary">
+                      Add
+                    </button>
+                  </div>
+            </form>
+
+            <form id="advancedForm" class="hidden">
+                <label for="advancedInput1">Service Input:</label>
+                <input type="text" id="advancedInput1" name="advancedInput1">
+                <div class="col-12">
+                    <button type="submit" value="Submit" class="btn btn-primary">
+                      Add
+                    </button>
+                  </div>
+            </form>
+
+        </div>
+      <!-- </form> -->
+    </div>
+
+    <script>
+        function toggleForm() {
+            var formTypeSelect = document.getElementById("formTypeSelect");
+            var selectedFormType = formTypeSelect.value;
+
+            var basicForm = document.getElementById("basicForm");
+            var advancedForm = document.getElementById("advancedForm");
+
+            // Sembunyikan semua formulir terlebih dahulu
+            basicForm.classList.add("hidden");
+            advancedForm.classList.add("hidden");
+
+            // Tampilkan formulir yang dipilih
+            if (selectedFormType === "basic") {
+                basicForm.classList.remove("hidden");
+            } else if (selectedFormType === "advanced") {
+                advancedForm.classList.remove("hidden");
+            }
+        }
+    </script>
+
+  </body>
+</html>

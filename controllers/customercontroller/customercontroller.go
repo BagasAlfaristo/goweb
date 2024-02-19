@@ -12,7 +12,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		"customers": customers,
 	}
 
-	temp, err := template.ParseFiles("views/customer/index.html")
+	temp, err := template.ParseFiles("views/customer/test.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
