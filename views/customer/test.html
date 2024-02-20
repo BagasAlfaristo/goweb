@@ -44,32 +44,35 @@
           <input type="text" class="form-control" id="Nomor_polisi" name="Nomor_polisi" />
 
           <label for="Nama_motor" class="form-label">Nama Motor</label>
-            <input type="text" class="form-control" id="Nama_motor" name="Nama_motor" />
+          <input type="text" class="form-control" id="Nama_motor" name="Nama_motor" />
 
-            <div class="col-md-5">
+            <div class="col-md-3">
                 <label for="Jenis_pesanan" class="form-label">Jenis Pesanan</label>
 
-                <select id="formTypeSelect" onchange="toggleForm()">
+                <select id="formTypeSelect" onchange="toggleForm()" class="form-select">
                   <option value="basic">Belanja</option>
                   <option value="advanced">Service</option>
                 </select>
 
             </div>
 
-            <form id="basicForm" class="hidden">
-                <label for="basicInput">Belanja Input:</label>
-                <input type="text" id="basicInput" name="basicInput">
+            <form id="basicForm" class="hidden" class="form-label">
+                <label for="basicInput" class="col-md-3">Belanja Input:</label>
+                <input type="text" id="basicInput" name="basicInput" class="form-control">
+                <label for="basicInput" class="col-md-3"></label>
                 <div class="col-12">
                     <button type="submit" value="Submit" class="btn btn-primary">
                       Add
                     </button>
-                  </div>
+                </div>
             </form>
 
-            <form id="advancedForm" class="hidden">
+            <form id="advancedForm" class="hidden" class="form-label">
                 <label for="advancedInput1">Service Input:</label>
-                <input type="text" id="advancedInput1" name="advancedInput1">
+                <input type="text" id="advancedInput1" name="advancedInput1" class="form-control">
+                <label for="basicInput" class="col-md-3"></label>
                 <div class="col-12">
+                  
                     <button type="submit" value="Submit" class="btn btn-primary">
                       Add
                     </button>
