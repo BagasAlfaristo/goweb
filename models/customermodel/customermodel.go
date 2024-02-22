@@ -4,6 +4,7 @@ import (
 	"goweb/config"
 	"goweb/entities"
 	"log"
+	"time"
 )
 
 func GetAll() []entities.Customer {
@@ -18,14 +19,24 @@ func GetAll() []entities.Customer {
 
 	for rows.Next() {
 		var customer entities.Customer
-		if err := rows.Scan(&customer.Id_pesanan, &customer.Tanggal, &customer.Nomor_polisi, &customer.Nama_motor, &customer.Jenis_pesanan); err != nil {
+		var tanggalDB []uint8 // Menggunakan []uint8 untuk menampung tanggal dari database
+
+		if err := rows.Scan(&customer.Id_pesanan, &tanggalDB, &customer.Nomor_polisi, &customer.Nama_motor, &customer.Jenis_pesanan); err != nil {
 			log.Fatal(err)
 		}
-		customers = append(customers, customer)
-	}
 
-	if err := rows.Err(); err != nil {
-		log.Fatal(err)
+		// Konversi dari []uint8 ke string
+		tanggalString := string(tanggalDB)
+
+		// Konversi dari string ke time.Time
+		tanggal, err := time.Parse("2006-01-02 15:04:05", tanggalString)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		customer.Tanggal = tanggal
+
+		customers = append(customers, customer)
 	}
 
 	return customers

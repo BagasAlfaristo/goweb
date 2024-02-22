@@ -53,7 +53,7 @@
                 {{range .customers}}
                 <tr>
                     <th scope="row">{{.Id_pesanan}}</th>
-                    <td>{{.Tanggal}}</td>
+                    <td>{{.Tanggal.Format "02 January 2006 15:04:05 WIB"}}</td>
                     <td>{{.Nomor_polisi}}</td>
                     <td>{{.Nama_motor}}</td>
                     <td>{{.Jenis_pesanan}}</td>
